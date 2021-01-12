@@ -22,7 +22,7 @@ use rand_core::{SeedableRng, RngCore, Error};
 #[derive(Debug, Clone, PartialEq, Eq)]
 #[cfg_attr(feature="serde1", derive(Serialize, Deserialize))]
 pub struct Xoshiro256PlusPlus {
-    s: [u64; 4],
+    pub s: [u64; 4],
 }
 
 impl SeedableRng for Xoshiro256PlusPlus {

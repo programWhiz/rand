@@ -78,7 +78,7 @@ type Rng = super::xoshiro128plusplus::Xoshiro128PlusPlus;
 /// [rand_xoshiro]: https://crates.io/crates/rand_xoshiro
 #[cfg_attr(doc_cfg, doc(cfg(feature = "small_rng")))]
 #[derive(Clone, Debug, PartialEq, Eq)]
-pub struct SmallRng(Rng);
+pub struct SmallRng(pub Rng);
 
 impl RngCore for SmallRng {
     #[inline(always)]
