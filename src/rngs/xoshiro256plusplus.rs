@@ -25,6 +25,19 @@ pub struct Xoshiro256PlusPlus {
     pub s: [u64; 4],
 }
 
+impl Xoshiro256PlusPlus {
+    fn get_seed(&self, out : &mut [u8; 32]) {
+        let mut k = 0;
+        for i in 0..4 {
+            let bytes = self.s[i].get_bytes();
+            for j in 0..8 {
+                out[k] = bytes[j];
+                k += 1;
+            }
+        }
+    }
+}
+
 impl SeedableRng for Xoshiro256PlusPlus {
     type Seed = [u8; 32];
 
